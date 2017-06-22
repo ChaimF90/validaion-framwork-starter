@@ -21,13 +21,13 @@ class Input extends React.Component {
     }
 
     changeHandler = (e) => {
-        let event = {
-            target: {
-                name: e.target.name,
-                value: e.target.value
-            }
-        };
-        this.props.changeHandler(event);
+        // let event = {
+        //     target: {
+        //         name: e.target.name,
+        //         value: e.target.value
+        //     }
+        // };
+        this.props.changeHandler(e);
         let currentInput = this.props.errors.find(e => e.name === this.props.name);
         if(currentInput) {
             this.props.removeErrorSuccess(currentInput);
