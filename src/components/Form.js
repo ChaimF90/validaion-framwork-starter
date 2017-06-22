@@ -1,7 +1,8 @@
 import React from 'react';
-import isEven from '../checkForEven';
+import { connect } from 'react-redux';
+import * as errorActions from '../actions/actions';
 
-export default class Form extends React.Component {
+class Form extends React.Component {
 
     submit = () => {
         let hasError = false;
@@ -9,6 +10,11 @@ export default class Form extends React.Component {
             let props = child.props;
             if(props.required && !props.value) {
                 hasError = true;
+                let errorObj = {
+                    name: props.name,
+                    message: props.errorMessage
+                }
+                this.props.addErrorsSuccess(errorObj);
             }
             if(props.custom) {
                 hasError = props.rule();
@@ -29,3 +35,9 @@ export default class Form extends React.Component {
         )
     }
 }
+
+
+export default connect(null, errorActions)(Form);
+
+
+

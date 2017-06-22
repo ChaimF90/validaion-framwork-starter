@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Form from './components/Form';
 import Input from './components/Input';
@@ -46,7 +45,6 @@ class App extends Component {
             placeholder="Username"
             changeHandler={this.changeHandeler}
             required />
-          <br />
           <Input
             errorMessage="Password is required"
             type="password"
@@ -55,14 +53,6 @@ class App extends Component {
             placeholder="password"
             changeHandler={this.changeHandeler}
             required />
-          <Input
-            type="text"
-            value={this.state.login.number}
-            name="number"
-            placeholder="Make it even"
-            changeHandler={this.changeHandeler}
-            custom
-            rule={this.rule} />
         </Form>
       </div>
     );
